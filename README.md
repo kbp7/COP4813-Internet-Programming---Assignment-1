@@ -3,7 +3,9 @@ http://139.62.210.151/~n00900355/cop4813/index.html
 
 This first assignment forms the basis for remaining assignments. The purpose is to create a web page that contains links to all future assignments. The goal is to use utilize HTML and CSS to create a clean and professional ePortfolio. 
 
-Requirements:
+Note: Bootstrap and Sidr unused
+  
+Assignment 1 Requirements:
   1. A homepage displaying descriptions and links for current and future assignments
   2. Consistent external CSS
   3. Centered title and name
