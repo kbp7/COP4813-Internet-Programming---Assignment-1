@@ -10,22 +10,23 @@
   <div class="nav">
     <ul>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
-      <li><a href="http://139.62.210.151/~n00900355/cop4813/programs.html">Projects</a></li>
+      <li><a href="https://github.com/kbp7">Github</a></li>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
       <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
     </ul>
   </div>
   <div class="container">
     <!-- Parallax jumbotron effect -->
-    <div class="splashbgforest"></div>
+    <div class="bgForest"></div>
     <div class="wumbotron">
         <h1 class="lobster bigHeader vertical-align">ePortfolio for COP 4813: Internet Programming</h1>
-        <h2 class="patuaOne tealAccent" style="margin-top: 175px; text-align: center">Kevin Poon</h2>
+        <h2 class="patuaOne tealAccent" style="margin-top: 215px; text-align: center">Kevin Poon</h2>
     </div>
   </div>
   <div class="container bodyContent">
     <hr>
-    <div class="row">
+    <!-- /////////////////////////////////////////////// ASSIGNMENT 1 ////////////////////////////////////////////////// -->
+    <div>
       <div>
         <h1 class="patuaOne"><a href="assign1/index.html">Assignment 1</a></h1>
       </div>
@@ -45,15 +46,37 @@
           <li>Become familiar with the development process</li>
         </ul>
       </div>
-      <hr>
     </div>
+    <hr>
+    <!-- /////////////////////////////////////////////// ASSIGNMENT 2 ////////////////////////////////////////////////// -->
+    <div>
+      <div>
+        <h1 class="patuaOne"><a href="###">Assignment 2</a></h1>
+      </div>
+      <div>
+        <h4 class="orangeHead bolded roboto">Description</h4>
+        <p>
+          Assignment description goes here.
+        </p>
+        <p>
+          More info here.
+        </p>
+        <ul>
+          <li>Objective 1</li>
+          <li>Objective 2</li>
+          <li>etc.</li>
+          <li>...</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
   </div>
   <script>
     var jumboHeight = $('.wumbotron').outerHeight();
 
     function parallax() {
       var scrolled = $(window).scrollTop();
-      $('.splashbgforest').css('height', (jumboHeight - scrolled) + 'px');
+      $('.bgForest').css('height', (jumboHeight - scrolled) + 'px');
     }
 
     $(window).scroll(function(e) {

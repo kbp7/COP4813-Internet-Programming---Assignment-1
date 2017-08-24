@@ -3,14 +3,13 @@
 
 <head>
   <title>COP 4813: Internet Programming</title>
-  <link rel="stylesheet" href="../bootstrap.min.css"></link>
-  <link rel="stylesheet" href="../jquery.sidr.dark.min.css"></link>
   <link rel="stylesheet" href="../style.css"></link>
   <!-- Include jQuery -->
   <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
 </head>
 
 <body>
+  <!-- ///////////// Navbar ////////////// -->
   <div class="nav">
     <ul>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
@@ -19,83 +18,36 @@
       <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/about.html">About</a></li>
     </ul>
   </div>
-  <div class="container">
-    <!-- Parallax jumbotron effect -->
-    <div class="splashbgforest"></div>
-    <div class="wumbotron">
-      <center>
-        <h1 class="lobster bigHeader">ePortfolio for COP 4813: Internet Programming</h1>
-        <div class="patuaOne tealAccent">
-          <h2 class="narrow">Kevin Poon</h2></div>
-      </center>
-    </div>
+  <div class="container bodyContent">
+    <h1 class="patuaOne">About Me</h1>
+    <a class="btn btn-primary btn-lg outline patuaOne" href="mailto:n00900355@unf.edu?Subject=Hello%20There" target="_top">Send Mail</a>
+    <p>
+      I am a Computing and Information Sciences major at UNF, graduating in December 2017. I was born in the Philippines and have lived in Orange Park since 2000.
+      I love video games, superhero movies, Lana Del Rey, and anything with shrimp in it.
+    </p>
+    <p>
+      I currently work at System Innovators in Jacksonville as a QA Analyst Intern, hoping to branch out into software development. Like a lot of people in this major,
+      I started coding with C and Java. I've learned a fair amount of C#, html, and CSS on my own and I hope to learn a lot more this year.
+      These pages are adapted from a personal project I did a few months ago with almost the same criteria, so that was convenient.
+    </p>
+    <p>
+      Technically I didn't need this class to graduate but I was curious about front-end development. The visual aspects of designing web pages are really
+      intriguing to me and it's satisfying to create something beautiful. I've always been drawn to art and feel like front-end development will be a fun career option to explore.
+    </p>
+
+      <h1 class="patuaOne">My Favorite Websites</h1>
+      <div>
+        <a class="btn btn-primary btn-lg outline patuaOne" href="https://www.reddit.com">Reddit</a>
+        <a class="btn btn-primary btn-lg outline patuaOne" href="http://www.youtube.com">Youtube</a>
+        <a class="btn btn-primary btn-lg outline patuaOne" href="http://www.stackoverflow.com">StackOverflow</a>
+      </div>
+
+      <p>
+        I use Reddit every day for basically all my interests and watch Youtube videos from my favorite channels. Like every computing major, Stack Overflow has saved my butt countless times.
+      </p>
+
+
   </div>
-  <div class="container" style="margin-bottom: 100px">
-    <!--div class="row">
-      <div class="col-xs-4" align="center">
-        <h4 class="orangeHead">
-            Cell: (904)-412-5916
-          </h4>
-      </div>
-      <div class="col-xs-4" align="center">
-        <h4 class="orangeHead">
-            Email: kbp7@hotmail.com
-          </h4>
-      </div>
-    </div-->
-    <div class="row">
-      <div class="col-xs-4 text-right">
-        <h1 class="patuaOne">About Me</h1>
-      </div>
-      <div class="col-xs-8">
-        <!-- h4 class="orangeHead bolded roboto">Kevin Poon</h4-->
-        <a href="mailto:n00900355@unf.edu?Subject=Hello%20There" target="_top">Send Mail</a>
-        <p>
-          I am a Computing and Information Sciences major at UNF, graduating in December 2017. I was born in the Philippines and have lived in Orange Park since 2000. I love video games, superhero movies, Lana Del Rey, and anything with shrimp in it. Do emojis
-          work in here? 🦐 🦐 🦐 Oh sweet they do.
-        </p>
-        <p>
-          I currently work at System Innovators in Jacksonville as a QA Analyst Intern, hoping to branch out into software development. Like a lot of people in this major, I started coding with C and Java. I've learned a fair amount of C#, html, and CSS on my own
-          and I hope to learn more this year. These pages are adapted from a personal project I did a few months ago with almost the same criteria, so that was convenient.
-        </p>
-        <p>
-          Technically I didn't need this class to graduate but I was curious about front-end development. The visual aspects of designing web pages are really intriguing to me and it's satisfying to create something beautiful. I've always been drawn to art and
-          feel like front-end development will be a fun career option to explore.
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-4 text-right">
-        <h1 class="patuaOne">My Favorite Websites</h1>
-        <div class="right" style="float: right">
-          <a class="btn btn-primary btn-lg outline patuaOne" href="https://www.reddit.com">Reddit</a>
-          <a class="btn btn-primary btn-lg outline patuaOne" href="http://www.youtube.com">Youtube</a>
-          <a class="btn btn-primary btn-lg outline patuaOne" href="http://www.stackoverflow.com">StackOverflow</a>
-        </div>
-      </div>
-      <div class="col-xs-8">
-        <p>
-          I use Reddit every day for basically all my interests and watch Youtube videos from my favorite channels.
-          Like every computing major, Stack Overflow has saved my butt countless times.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    var jumboHeight = $('.wumbotron').outerHeight();
-
-    function parallax() {
-      var scrolled = $(window).scrollTop();
-      $('.splashbgforest').css('height', (jumboHeight - scrolled) + 'px');
-    }
-
-    $(window).scroll(function(e) {
-      parallax();
-    });
-  </script>
-
 </body>
 
 </html>
