@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Kumar+One|Lobster|Open+Sans|Patua+One|Poiret+One|Righteous|Roboto|Shrikhand');
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.bodyContent {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.bigHeader {
+    font-size: 48px;
+    padding: 0px;
+    margin: 0px;
+    /* text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black; */
+    text-shadow: 1px 1px 2px black;
+    text-align: center;
+}
+.vertical-align {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.narrow {
+  margin: 0px;
+}
+.right {
+  max-width: 125px;
+}
+.offset {
+  margin-top: 20px;
+}
+.banner {
+  background-color: rgb(27, 25, 32);
+}
+.gradient {
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+/* --------- Fancy title font ----------- */
+.kumarOne {
+  font-family: 'Kumar One', cursive;
+}
+/* title font */
+.patuaOne {
+  font-family: 'Patua One', cursive;
+  color: #000d26;
+}
+/* ---------- body text ------------------*/
+.roboto {
+  font-family: 'Roboto', sans-serif;
+}
+.openSans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ---------- other fonts for later ----------- */
+.lobster {
+  font-family: 'Lobster', cursive;
+}
+.poiretOne {
+  font-family: 'Poiret One', cursive;
+}
+.shrikhand {
+  font-family: 'Shrikhand', cursive;
+}
+
+/* coloration */
+.orangeHead {
+  color: #fc813b;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+.tealAccent {
+  color: #37c8a1;
+}
+.bolded {
+  font-weight: bold;
+}
+
+/* --------- navbar ----------- */
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none
+}
+
+.nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #020511;
+    width: 100%;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Patua One', cursive;
+}
+
+.nav li a:hover:not(.active) {
+    background-color: #37c8a1;
+}
+
+.activeNav {
+    background-color: #37c8a1;
+}
+
+/*rounded images */
+.fadebg {
+  width:350px;
+  height:25px:
+  background-color:#FF0000;
+}
+.img-circle {
+    border-radius: 50%;
+    width:150px;
+    height:150px;
+    margin-top:40px;
+    background-color: #fff;
+    padding: 4px;
+}
+/* backgrounds */
+.splashbgforest {
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%), url("images/forest.jpg") no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 400px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.splashbggas1 {
+  background: url('http://i.imgur.com/xE8rK5Q.jpg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 400px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.splashbggas2 {
+  background: url('http://i.imgur.com/1kSwTcb.jpg') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 400px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.splashbgcity {
+  background: url('http://i.imgur.com/BpV1aIL.png') no-repeat center center;
+  position: fixed;
+  width: 100%;
+  height: 400px; /*same height as jumbotron */
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.wumbotron {
+  margin-bottom: -50px;
+  height: 400px;
+  color: white;
+  /* text-shadow: black 0.1em 0.1em 0.1em; */
+  background:transparent;
+}
+
+css {
+    height: 100% !important;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+body {
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+  margin: 0px;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 24px;
+}
+
+h1, h2, h3 {
+  margin: 0px;
+}
+/* unvisited link */
+a:link {
+    color: black;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #37c8a1;
+}
+
+/* selected link */
+a:active {
+    color: #37c8a1;
+}
+#nav-logo {
+  float: right;
+  font-family: "patuaOne" !important;
+  color: #FFF !important;
+  font-size: x-large;
+  line-height: 50px;
+  vertical-align: middle;
+}
+
+/* BUTTONS */
+.btn.outline {
+  width: 125px;
+	background: none;
+	padding: 5px 10px;
+}
+.btn-primary.outline {
+  font-size: 15px;
+	border: 3px solid #000000;
+  background: none;
+	color: #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .open > .dropdown-toggle.btn-primary {
+	color: #ffa274;
+  background: none;
+	border-color: #ffa274;
+}
+.btn-primary.outline:active {
+	border-color: #ffa274;
+	color: #ffa274;
+  background: none;
+	box-shadow: none;
+}
+a.btn.btn-primary.btn-lg.outline.kaushanScript:active {
+  background: none;
+  border-color: #ffc700;
+	color: #ffc700;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>COP 4813: Internet Programming</title>
+  <link rel="stylesheet" href="style.css"></link>
+  <!-- Include jQuery -->
+  <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+  <div class="nav">
+    <ul>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/programs.html">Projects</a></li>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <!-- Parallax jumbotron effect -->
+    <div class="splashbgforest"></div>
+    <div class="wumbotron">
+        <h1 class="lobster bigHeader vertical-align">ePortfolio for COP 4813: Internet Programming</h1>
+        <h2 class="patuaOne tealAccent" style="margin-top: 175px; text-align: center">Kevin Poon</h2>
+    </div>
+  </div>
+  <div class="container bodyContent">
+    <hr>
+    <div class="row">
+      <div>
+        <h1 class="patuaOne"><a href="assign1/index.html">Assignment 1</a></h1>
+      </div>
+      <div>
+        <h4 class="orangeHead bolded roboto">Description</h4>
+        <p>
+          The purpose of this assignment is to learn the basics of HTML to create a simple "About Me" page. This page includes a few paragraphs about myself, a list of my favorite websites, my class schedule in table format, and a picture of me. I used CSS and
+          Bootstrap to make it look pretty.
+        </p>
+        <p>
+          During this assignment, I learned how to create tables and neatly organize my folder structure. I have coincidentally already done most of this assignment as a personal project over the summer so a lot of my HTML was repurposed, but this was a good refresher.
+        </p>
+        <ul>
+          <li>Learn the fundamentals of web design and HTML</li>
+          <li>Utilize appropriate HTML tags</li>
+          <li>Learn proper formatting and layout</li>
+          <li>Become familiar with the development process</li>
+        </ul>
+      </div>
+      <hr>
+    </div>
+  </div>
+  <script>
+    var jumboHeight = $('.wumbotron').outerHeight();
+
+    function parallax() {
+      var scrolled = $(window).scrollTop();
+      $('.splashbgforest').css('height', (jumboHeight - scrolled) + 'px');
+    }
+
+    $(window).scroll(function(e) {
+      parallax();
+    });
+  </script>
+</body>
+</html>
