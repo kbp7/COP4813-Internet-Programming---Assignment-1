@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Kumar+One|Lobster|Open+Sans|Patua+One|Poiret+One|Righteous|Roboto|Shrikhand');
+@import url('https://fonts.googleapis.com/css?family=Kumar+One|Lobster|Open+Sans|Patua+One|Poiret+One|Righteous|Roboto|Shrikhand|Raleway');
 
 .container {
   padding-right: 15px;
@@ -7,8 +7,9 @@
   margin-left: auto;
 }
 .bodyContent {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 150px;
 }
 .bigHeader {
     font-size: 48px;
@@ -17,6 +18,7 @@
     /* text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px black; */
     text-shadow: 1px 1px 2px black;
     text-align: center;
+    font-weight: normal;
 }
 .vertical-align {
     position: relative;
@@ -55,6 +57,9 @@
 }
 .openSans {
   font-family: 'Open Sans', sans-serif;
+}
+.raleway {
+  font-family: 'Raleway', sans-serif;
 }
 
 /* ---------- other fonts for later ----------- */
@@ -170,25 +175,40 @@ body {
   background: -moz-linear-gradient(top, #ffffff 0%, #f6f6f6 47%, #ededed 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, #ffffff 0%,#f6f6f6 47%,#ededed 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 24px;
   margin: 0px;
   height: 100%;
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 24px;
+  color: black;
 }
 
-h1, h2, h3 {
-  margin: 0px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: serif;
 }
 
 hr {
   width: 90%;
   color: black;
 }
+table, td, th {
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    padding: 15px;
+}
+
 /* unvisited link */
 a:link {
     color: black;
@@ -209,14 +229,6 @@ a:hover {
 /* selected link */
 a:active {
     color: #37c8a1;
-}
-#nav-logo {
-  float: right;
-  font-family: "patuaOne" !important;
-  color: #FFF !important;
-  font-size: x-large;
-  line-height: 50px;
-  vertical-align: middle;
 }
 
 /* BUTTONS */
