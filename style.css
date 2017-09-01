@@ -38,7 +38,6 @@
 /* title font */
 .patuaOne {
   font-family: 'Patua One', cursive;
-  color: #000d26;
 }
 /* ---------- body text ------------------*/
 .roboto {
@@ -65,9 +64,8 @@
 /* coloration */
 .orangeHead {
   color: #fc813b;
-  margin-top: 10px;
-  margin-bottom: 10px;
   font-size: 24px;
+  font-weight: normal;
 }
 .tealAccent {
   color: #37c8a1;
@@ -170,7 +168,7 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: serif;
+  font-family: 'Patua One', serif;
 }
 
 hr {
