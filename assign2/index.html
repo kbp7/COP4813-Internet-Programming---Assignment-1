@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>COP 4813: Internet Programming</title>
   <link rel="stylesheet" href="../style.css"></link>
 </head>
+
 <body>
   <!-- ///////////// Navbar ////////////// -->
   <div class="nav">
@@ -18,8 +20,69 @@
   <div class="container bodyContent">
     <h1 class="patuaOne">Assignment 2 [WIP]</h1>
     <p>
-      Assignment 2 content goes here.
+      Are you Dwight Schrute? This quiz will find out!
     </p>
+    <!--p>
+      Ideas for Assignment 2:
+
+      Game recommender:
+        1. Drop down - platform preference
+        2. Radio Buttons - SP, MP, Both
+        3. Checkboxes - Genre
+        4. Text box - What kind of bear is best? false. black bear.
+    </p-->
+
+    <!-- forms -->
+    <form>
+      What kind of bear is best?<br>
+      <input type="text" id="bestBear" name="bear">
+      <input type="button" value="Enter" onclick="askDwight()">
+      <p id="jimReply">
+      </p><br><br>
+      <!-- checkboxes -->
+      You like:<br>
+      <input type="checkbox" name="likes" value="bears">Bears<br>
+      <input type="checkbox" name="likes" value="beets">Beets<br>
+      <input type="checkbox" name="likes" value="battlestar">Battlestar Galactica<br><br>
+      You own:<br>
+      <input type="checkbox" name="property" value="bears">Prescription glasses<br>
+      <input type="checkbox" name="property" value="beets">Calculator watch<br>
+      <input type="checkbox" name="property" value="battlestar">A dozen short sleeve shirts in classic mustard yellow + brown tie combo<br>
+      <input type="checkbox" name="property" value="bears">A beet farm/Bed and Breakfast<br><br>
+      <!-- Drop down -->
+      What do you aspire to be in life?:<br>
+      <select name="aspiration">
+        <option value="billionaire">A multi-billionaire CEO/Crime Fighter</option>
+        <option value="actor">A world renown actor and male model</option>
+        <option value="drifter">A homeless drifter on a soul-searching international journey</option>
+        <option value="president">The President of the United States</option>
+        <option value="manager">A regional manager at a local paper company</option>
+      </select><br><br>
+      <!-- radio buttons -->
+      You happen across a man who does not appear to be breathing. What do you do?<br>
+      <input type="radio" id="option1" name="option" value="call911">Call 911<br>
+      <input type="radio" id="option2" name="option" value="bury">Bury him<br>
+      <input type="radio" id="option3" name="option" value="harvest">Check for an organ donor card. We only have minutes to harvest.<br><br>
+
+      <input type="submit" value="Submit">
+      <input type="reset">
+    </form>
   </div>
+
+  <script>
+  function askDwight() {
+    var jim = "";
+    if(document.getElementById('bestBear').value.toUpperCase() != "BLACK BEAR") {
+      jim = "False. Black bear.";
+    }
+    else {
+      jim = "Damn right."
+    }
+    alert(document.getElementById("bestBear").value);
+    document.getElementById("jimReply").innerHTML = jim;
+  }
+  </script>
+
 </body>
+
 </html>
