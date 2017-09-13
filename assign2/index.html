@@ -88,14 +88,14 @@
       //calculate score
       if (definitelyNotDwight) {
         score = 0.0;
-        if (likesJim) {
+        if (likesJim && likesPranks) {
+          document.getElementById("results").innerHTML = "You like Jim AND pranks??? You're definitely not Dwight!!!";
+          showFakeDwight();
+        } else if (likesJim) {
           document.getElementById("results").innerHTML = "You like Jim? I'm pretty sure you are not Dwight.";
           showFakeDwight();
         } else if (likesPranks) {
           document.getElementById("results").innerHTML = "You like pranks? I'm pretty sure you are not Dwight.";
-          showFakeDwight();
-        } else if (likesJim && likesPranks) {
-          document.getElementById("results").innerHTML = "You like Jim AND pranks??? You're definitely not Dwight!!!";
           showFakeDwight();
         }
       } else {
@@ -171,8 +171,8 @@
       Results:
     </h3>
     <p id="results"></p>
-    <div id="image">
-
+    <div>
+      <img id="image" src="" align="middle">
     </div>
   </div>
 </body>
