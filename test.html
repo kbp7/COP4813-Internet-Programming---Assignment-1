@@ -2,28 +2,195 @@
 <html>
 
 <head>
-  <title>Testing Grounds</title>
+  <title>COP 4813: Internet Programming</title>
   <link rel="stylesheet" href="style.css"></link>
-  <!-- Include jQuery -->
-  <script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"></script>
+
+  <script>
+  var likesJim = false;
+  var likesPranks = false;
+  var definitelyNotDwight = false;
+
+    function askDwight() {
+      var jim = "";
+      if (document.getElementById('bestBear').value.toUpperCase() != "BLACK BEAR") {
+        jim = "False. Black bear.";
+      } else {
+        jim = "Damn right.";
+      }
+      //alert(document.getElementById("bestBear").value);
+      document.getElementById("jimReply").innerHTML = jim;
+    }
+
+    function checkLikes(points, myLikes, iOwn) {
+      if (!myLikes[0].checked) {
+        points++;
+      } else {
+        definitelyNotDwight = true;
+        likesJim = true;
+      }
+      if (!myLikes[1].checked) {
+        points++;
+      } else {
+        definitelyNotDwight = true;
+        likesPranks = true;
+      }
+      for (var i = 2; i < 5; i++) {
+        if (myLikes[i].checked) {
+          points++;
+        }
+      }
+      for (var i = 0; i < 4; i++) {
+        if (iOwn[i].checked) {
+          points++;
+        }
+      }
+      return points;
+    }
+
+    function checkAspirations(points, myAspiration) {
+      switch (myAspiration) {
+        case "manager":
+          points++;
+          break;
+        case "beet":
+          points++;
+          break;
+        default:
+          //do nothing
+      }
+      return points;
+    }
+
+    function checkEmergencyChoice(points, emergencyChoice) {
+      if (emergencyChoice[2].checked) {
+        points++;
+      }
+      return points;
+    }
+
+    function calculateResults() {
+      var pointsPossible = 12;
+      var points = 0;
+      var myLikes = document.getElementsByName("likes");
+      var iOwn = document.getElementsByName("property");
+      var myAspiration = document.getElementById("dropDown").value;
+      var emergencyChoice = document.getElementsByName("option");
+      var score = 0;
+      //check question 1
+      if (document.getElementById("jimReply").innerHTML == "Damn right.") {
+        points++;
+      }
+      //check question 2 and 3
+      points = checkLikes(points, myLikes, iOwn);
+      //check question 4
+      points = checkAspirations(points, myAspiration);
+      //check question 5
+      points = checkEmergencyChoice(points, emergencyChoice);
+
+      //calculate score
+      if (definitelyNotDwight) {
+        score = 0.0;
+        if (likesJim && likesPranks) {
+          document.getElementById("results").innerHTML = "You like Jim AND pranks??? You're definitely not Dwight!!!";
+          showFakeDwight();
+        } else if (likesJim) {
+          document.getElementById("results").innerHTML = "You like Jim? I'm pretty sure you are not Dwight.";
+          showFakeDwight();
+        } else if (likesPranks) {
+          document.getElementById("results").innerHTML = "You like pranks? I'm pretty sure you are not Dwight.";
+          showFakeDwight();
+        }
+      } else {
+        score = (points / pointsPossible) * 100;
+        //alert(score);
+        if (score == 100) {
+          document.getElementById("results").innerHTML = "Score: " + score + "%! You are definitely Dwight Schrute!";
+          showRealDwight();
+        } else {
+          document.getElementById("results").innerHTML = "I'm " + score + "% sure that you are Dwight Schrute.";
+        }
+      }
+    }
+
+    function clearResults() {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("image").src = '###';
+    }
+
+    function showFakeDwight() {
+      document.getElementById('image').src = 'images/fakeDwight.jpg';
+    }
+
+    function showRealDwight() {
+      document.getElementById('image').src = 'images/realDwight.jpeg';
+      document.getElementById('image').width = 600;
+    }
+  </script>
 </head>
 
 <body>
+  <!-- ///////////// Navbar ////////////// -->
   <div class="nav">
     <ul>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
       <li><a href="https://github.com/kbp7">Github</a></li>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
-      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/about.html">About</a></li>
     </ul>
   </div>
-  <div class="bodyContent">
-    <h1>Testing Grounds</h1>
-    <h4>Placeholder, under construction!</h4>
+  <!-- ///////////// end Navbar ////////////// -->
+  <div class="container bodyContent">
+    <h1 class="patuaOne">Assignment 2 [WIP]</h1>
     <p>
-      This area will be used to test new or experimental code.
+      Are you Dwight Schrute? This quiz will find out!
     </p>
-    <hr>
+
+    <!-- forms -->
+    <form id="survey" onreset="clearResults()">
+      <!-- text field -->
+      What kind of bear is best?<br>
+      <input type="text" id="bestBear" name="bear">
+      <input type="button" value="Enter" onclick="askDwight()">
+      <p id="jimReply">
+      </p><br><br>
+      <!-- checkboxes -->
+      You like:<br>
+      <input type="checkbox" name="likes" value="jim">Jim Halpert<br>
+      <input type="checkbox" name="likes" value="pranks">Pranks<br>
+      <input type="checkbox" name="likes" value="bears">Bears<br>
+      <input type="checkbox" name="likes" value="beets">Beets<br>
+      <input type="checkbox" name="likes" value="battlestar">Battlestar Galactica<br><br> You own:<br>
+      <input type="checkbox" name="property" value="bears">Prescription glasses<br>
+      <input type="checkbox" name="property" value="beets">Calculator watch<br>
+      <input type="checkbox" name="property" value="battlestar">A dozen short sleeve shirts in classic mustard yellow + brown tie combo<br>
+      <input type="checkbox" name="property" value="bears">A beet farm/Bed and Breakfast<br><br>
+      <!-- Drop down -->
+      What do you aspire to be in life?:<br>
+      <select name="aspiration" id="dropDown">
+        <option value="billionaire">A multi-billionaire CEO/Crime Fighter</option>
+        <option value="actor">A world renown actor and male model</option>
+        <option value="drifter">A homeless drifter on a soul-searching journey across the world</option>
+        <option value="beet">The world's greatest beet farmer and professional bear wrestler</option>
+        <option value="president">The President of the United States</option>
+        <option value="manager">A regional manager at a local paper company</option>
+      </select><br><br>
+      <!-- radio buttons -->
+      You happen across a man who does not appear to be breathing. What do you do?<br>
+      <input type="radio" id="option1" name="option" value="call911">Call 911<br>
+      <input type="radio" id="option2" name="option" value="bury">Bury him<br>
+      <input type="radio" id="option3" name="option" value="harvest">Check for an organ donor card. We only have minutes to harvest.<br><br>
+      <!-- submit/reset -->
+      <input type="button" value="Submit" onClick="calculateResults()">
+      <input type="reset">
+    </form>
+    <h3>
+      Results:
+    </h3>
+    <p id="results"></p>
+    <div>
+      <img id="image" src="" align="middle">
+    </div>
   </div>
 </body>
+
 </html>
