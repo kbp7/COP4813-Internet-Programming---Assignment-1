@@ -92,7 +92,7 @@
       //check question 1
 
       if (bestBear == "") {
-        alert("bear");
+        //alert("bear");
         document.getElementById("q1Error").innerHTML = "Answer required."
         return;
       } else {
@@ -142,6 +142,7 @@
       document.getElementById("results").innerHTML = "";
       document.getElementById("q1Error").innerHTML = "";
       document.getElementById("q5Error").innerHTML = "";
+      document.getElementById("jimReply").innerHTML = "";
       document.getElementById("image").src = '';
       likesJim = false;
       likesPranks = false;
@@ -166,41 +167,48 @@
       <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
       <li><a href="https://github.com/kbp7">Github</a></li>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
-      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/about.html">About</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
     </ul>
   </div>
   <!-- ///////////// end Navbar ////////////// -->
   <div class="container bodyContent">
-    <h1 class="patuaOne">Assignment 2 [WIP]</h1>
+    <h1 class="patuaOne">Assignment 2</h1>
     <p>
       Are you Dwight Schrute? This quiz will find out!
     </p>
-
+    <hr>
     <!-- forms -->
     <form id="survey" onreset="clearResults()">
       <!-- text field -->
-      What kind of bear is best?<br>
-      <input type="text" id="bestBear" name="bear">
-      <input type="button" value="Enter" onclick="askDwight()">
-      <div id="q1Error">
-
+      1. What kind of bear is best?<br>
+      <div class="answers">
+        <input type="text" id="bestBear" name="bear">
+        <input type="button" value="Enter" onclick="askDwight()">
+        <div id="q1Error">
+        </div>
+        <div id="jimReply">
+        </div>
       </div>
-      <p id="jimReply">
-      </p>
       <!-- checkboxes -->
-      You like:<br>
-      <input type="checkbox" name="likes" value="jim">Jim Halpert<br>
-      <input type="checkbox" name="likes" value="pranks">Pranks<br>
-      <input type="checkbox" name="likes" value="bears">Bears<br>
-      <input type="checkbox" name="likes" value="beets">Beets<br>
-      <input type="checkbox" name="likes" value="battlestar">Battlestar Galactica<br><br> You own:<br>
-      <input type="checkbox" name="property" value="bears">Prescription glasses<br>
-      <input type="checkbox" name="property" value="beets">Calculator watch<br>
-      <input type="checkbox" name="property" value="battlestar">A dozen short sleeve shirts in classic mustard yellow + brown tie combo<br>
-      <input type="checkbox" name="property" value="bears">A beet farm/Bed and Breakfast<br><br>
+      2. You like:<br>
+      <div class="answers">
+        <input type="checkbox" name="likes" value="jim">Jim Halpert<br>
+        <input type="checkbox" name="likes" value="pranks">Pranks<br>
+        <input type="checkbox" name="likes" value="bears">Bears<br>
+        <input type="checkbox" name="likes" value="beets">Beets<br>
+        <input type="checkbox" name="likes" value="battlestar">Battlestar Galactica<br><br>
+      </div>
+      3. You own:<br>
+      <div class="answers">
+        <input type="checkbox" name="property" value="bears">Prescription glasses<br>
+        <input type="checkbox" name="property" value="beets">Calculator watch<br>
+        <input type="checkbox" name="property" value="battlestar">A dozen short sleeve shirts in classic mustard yellow + brown tie combo<br>
+        <input type="checkbox" name="property" value="bears">A beet farm/Bed and Breakfast<br><br>
+      </div>
       <!-- Drop down -->
-      What do you aspire to be in life?:<br>
-      <select name="aspiration" id="dropDown">
+      4. What do you aspire to be in life?:<br>
+      <div class="answers">
+        <select name="aspiration" id="dropDown">
         <option value="billionaire">A multi-billionaire CEO/Crime Fighter</option>
         <option value="actor">A world renown actor and male model</option>
         <option value="drifter">A homeless drifter on a soul-searching journey across the world</option>
@@ -208,14 +216,16 @@
         <option value="president">The President of the United States</option>
         <option value="manager">A regional manager at a local paper company</option>
       </select><br><br>
+      </div>
       <!-- radio buttons -->
-      You happen across a man who does not appear to be breathing. What do you do?<br>
-      <input type="radio" id="option1" name="option" value="call911">Call 911<br>
-      <input type="radio" id="option2" name="option" value="bury">Bury him<br>
-      <input type="radio" id="option3" name="option" value="harvest">Check for an organ donor card. We only have minutes to harvest.<br>
-      <div id="q5Error">
-
-      </div><br><br>
+      5. You happen across a man who does not appear to be breathing. What do you do?<br>
+      <div class="answers">
+        <input type="radio" id="option1" name="option" value="call911">Call 911<br>
+        <input type="radio" id="option2" name="option" value="bury">Bury him<br>
+        <input type="radio" id="option3" name="option" value="harvest">Check for an organ donor card. We only have minutes to harvest.<br>
+        <div id="q5Error">
+        </div>
+      </div>
       <!-- submit/reset -->
       <input type="button" value="Submit" onClick="calculateResults()">
       <input type="reset">
