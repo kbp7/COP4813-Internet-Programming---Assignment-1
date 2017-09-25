@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COP 4813: Internet Programming</title>
+  <link rel="stylesheet" href="../style.css"></link>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+</head>
+
+<body>
+  <!-- ///////////// Navbar ////////////// -->
+  <div class="nav">
+    <ul>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
+      <li><a href="https://github.com/kbp7">Github</a></li>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
+    </ul>
+  </div>
+  <!-- ///////////// end Navbar ////////////// -->
+  <div class="container bodyContent">
+    <h1 class="patuaOne">Assignment 3</h1>
+    <p>
+      Statistics Calculator
+    </p>
+    <hr>
+    <!-- forms -->
+    <form id="survey" onreset="clearData()">
+      <!-- text field -->
+      Enter a series of numbers separated by spaces:<br>
+
+      <input type="text" id="input" name="name">
+      <div id="inputError">
+
+      </div><br>
+
+      <!-- submit/reset -->
+      <input type="button" value="Submit" onClick="calculateResults()">
+      <input type="reset">
+    </form>
+
+    <h3>
+      Results:
+    </h3>
+    <p id="results"></p>
+
+  </div>
+</body>
+
+</html>
