@@ -5,7 +5,116 @@
   <title>COP 4813: Internet Programming</title>
   <link rel="stylesheet" href="../style.css"></link>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    var inputArray;
+    var number;
+    var sum;
+    var mean;
+    var median;
+    var mode;
+    var variance;
+    var stdDeviation;
+
+    $(document).ready(function() {
+      $("#submit").click(function() {
+        inputArray = ($("#input").val().split(" "));
+        calculateResults(inputArray);
+      });
+    });
+
+    function calculateResults(array) {
+      //alert(inputArray);
+      sum = findSum(array);
+      number = findN(array);
+      mean = findMean(array);
+      median = findMedian(array);
+      mode = findMode(array);
+      variance = findVariance(array);
+      stdDeviation = findStandardDeviation(array);
+      alert("Sum: " + sum);
+      alert("N: " + number);
+      alert("Mean: " + mean);
+      alert("Median: " + median);
+      alert("Mode: " + mode);
+      alert("Variance: " + variance);
+      alert("Standard Deviation: " + stdDeviation);
+    }
+
+    function clearResults() {
+      number = 0;
+      sum = 0;
+      //clear messages
+    }
+
+    function findN(array) {
+      number = array.length;
+      return parseInt(number);
+    }
+
+    function findMean(array) {
+      return sum / number;
+    }
+
+    function findSum(array) {
+      sum = 0;
+      for (var i = 0; i < array.length; i++) {
+        sum += array[i] << 0;
+      }
+      return parseInt(sum);
+    }
+
+    function findMedian(array) {
+      array.sort(function(a, b) {
+        return a - b
+      });
+      alert("sorted: " + array);
+      var half = Math.floor(number / 2);
+      if (number % 2) {
+        return array[half];
+      } else {
+        var mid1 = parseInt(array[half - 1]);
+        var mid2 = parseInt(array[half]);
+        return (mid1 + mid2) / 2.0;
+      }
+    }
+
+    function findMode(array) {
+      if (number == 0) {
+        return null;
+      }
+      var counts = {};
+      var theMode = array[0]
+      var most = 1;
+      for (var i = 0; i < number; i++) {
+        var num = array[i];
+        if (counts[num] == null) {
+          counts[num] = 1;
+        } else {
+          counts[num]++;
+        }
+        if (counts[num] > most) {
+          theMode = num;
+          most = counts[num];
+        } else if (counts[num] == most) {
+          theMode += ", " + num;
+        }
+      }
+      return theMode;
+    }
+
+    function findVariance(array) {
+      var sumSquareDifferences = 0;
+      for (var i = 0; i < number; i++) {
+        var difference = mean - array[i];
+        sumSquareDifferences += (difference * difference);
+      }
+      return sumSquareDifferences / number;
+    }
+
+    function findStandardDeviation(array) {
+      return Math.sqrt(variance);
+    }
   </script>
 </head>
 
@@ -37,7 +146,7 @@
       </div><br>
 
       <!-- submit/reset -->
-      <input type="button" value="Submit" onClick="calculateResults()">
+      <input id="submit" type="button" value="Submit">
       <input type="reset">
     </form>
 
