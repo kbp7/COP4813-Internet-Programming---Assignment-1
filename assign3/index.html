@@ -21,6 +21,9 @@
         inputArray = ($("#input").val().split(" "));
         calculateResults(inputArray);
       });
+      $("#reset").on("click", function() {
+        clearResults();
+      });
     });
 
     function calculateResults(array) {
@@ -32,6 +35,16 @@
       mode = findMode(array);
       variance = findVariance(array);
       stdDeviation = findStandardDeviation(array);
+
+      $("#results").html("Sorted Input: " + array + "<br>");
+      $("#results").append("N = " + number + "<br>");
+      $("#results").append("Sum = " + sum + "<br>");
+      $("#results").append("Mean = " + mean + "<br>");
+      $("#results").append("Median = " + median + "<br>");
+      $("#results").append("Mode = " + mode + "<br>");
+      $("#results").append("Variance = " + variance + "<br>");
+      $("#results").append("Standard Deviation = " + stdDeviation + "<br>");
+      /*
       alert("Sum: " + sum);
       alert("N: " + number);
       alert("Mean: " + mean);
@@ -39,12 +52,15 @@
       alert("Mode: " + mode);
       alert("Variance: " + variance);
       alert("Standard Deviation: " + stdDeviation);
+      */
     }
 
     function clearResults() {
       number = 0;
       sum = 0;
+      mode = 0;
       //clear messages
+      $("#results").html("");
     }
 
     function findN(array) {
@@ -68,7 +84,7 @@
       array.sort(function(a, b) {
         return a - b
       });
-      alert("sorted: " + array);
+      //alert("sorted: " + array);
       var half = Math.floor(number / 2);
       if (number % 2) {
         return array[half];
@@ -84,7 +100,7 @@
         return null;
       }
       var counts = {};
-      var theMode = array[0]
+      var theMode = "";
       var most = 1;
       for (var i = 0; i < number; i++) {
         var num = array[i];
@@ -147,7 +163,7 @@
 
       <!-- submit/reset -->
       <input id="submit" type="button" value="Submit">
-      <input type="reset">
+      <input id ="reset" type="reset">
     </form>
 
     <h3>
