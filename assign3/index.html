@@ -44,15 +44,7 @@
       $("#results").append("Mode = " + mode + "<br>");
       $("#results").append("Variance = " + variance + "<br>");
       $("#results").append("Standard Deviation = " + stdDeviation + "<br>");
-      /*
-      alert("Sum: " + sum);
-      alert("N: " + number);
-      alert("Mean: " + mean);
-      alert("Median: " + median);
-      alert("Mode: " + mode);
-      alert("Variance: " + variance);
-      alert("Standard Deviation: " + stdDeviation);
-      */
+      
     }
 
     function clearResults() {
@@ -125,7 +117,7 @@
         var difference = mean - array[i];
         sumSquareDifferences += (difference * difference);
       }
-      return sumSquareDifferences / number;
+      return sumSquareDifferences / (number-1);
     }
 
     function findStandardDeviation(array) {
@@ -170,7 +162,7 @@
       Results:
     </h3>
     <p id="results"></p>
-
+    <p id="tests"></p>
   </div>
 </body>
 
