@@ -20,6 +20,8 @@
       $("#submit").click(function() {
         inputArray = ($("#input").val().split(" "));
         calculateResults(inputArray);
+        $("#tests").removeClass("hidden");
+        //$("tests").removeClass("hidden");
       });
       $("#reset").on("click", function() {
         clearResults();
@@ -44,7 +46,7 @@
       $("#results").append("Mode = " + mode + "<br>");
       $("#results").append("Variance = " + variance + "<br>");
       $("#results").append("Standard Deviation = " + stdDeviation + "<br>");
-      
+
     }
 
     function clearResults() {
@@ -53,6 +55,7 @@
       mode = 0;
       //clear messages
       $("#results").html("");
+      $("#tests").addClass("hidden");
     }
 
     function findN(array) {
@@ -117,7 +120,7 @@
         var difference = mean - array[i];
         sumSquareDifferences += (difference * difference);
       }
-      return sumSquareDifferences / (number-1);
+      return sumSquareDifferences / (number - 1);
     }
 
     function findStandardDeviation(array) {
@@ -144,9 +147,9 @@
     </p>
     <hr>
     <!-- forms -->
-    <form id="survey" onreset="clearData()">
+    <form id="survey" onreset="clearResults()">
       <!-- text field -->
-      Enter a series of numbers separated by spaces:<br>
+      Enter a series of numbers separated by spaces:<br><br>
 
       <input type="text" id="input" name="name">
       <div id="inputError">
@@ -155,14 +158,116 @@
 
       <!-- submit/reset -->
       <input id="submit" type="button" value="Submit">
-      <input id ="reset" type="reset">
+      <input id="reset" type="reset">
     </form>
 
     <h3>
       Results:
     </h3>
     <p id="results"></p>
-    <p id="tests"></p>
+    <div id="tests" class="hidden">
+      <h3>Tests:</h3>
+      <table>
+        <tr>
+          <th>
+            <font color="#fc813b">User Input</font>
+          </th>
+          <th>
+            <font color="#fc813b"></font>
+          </th>
+          <th>
+            <font color="#fc813b">N</font>
+          </th>
+          <th>
+            <font color="#fc813b">Sum</font>
+          </th>
+          <th>
+            <font color="#fc813b">Mean</font>
+          </th>
+          <th>
+            <font color="#fc813b">Median</font>
+          </th>
+          <th>
+            <font color="#fc813b">Mode</font>
+          </th>
+          <th>
+            <font color="#fc813b">Sample Variance</font>
+          </th>
+          <th>
+            <font color="#fc813b">Sample Standard Deviation</font>
+          </th>
+        </tr>
+        <tr>
+          <!-- Test Data 1 -->
+          <td>1 5 3 9</td>
+          <td>Expected:</td>
+          <td>4</td>
+          <td>18</td>
+          <td>4.5</td>
+          <td>4</td>
+          <td>1, 3, 5, 9</td>
+          <td>11.7</td>
+          <td>3.4</td>
+        </tr>
+        <tr>
+          <td>1 5 3 9</td>
+          <td>Actual:</td>
+          <td>4</td>
+          <td>18</td>
+          <td>4.5</td>
+          <td>4</td>
+          <td>1, 3, 5, 9</td>
+          <td>11.7</td>
+          <td>3.4</td>
+        </tr>
+        <tr>
+          <!-- Test Data 2 -->
+          <td>7 7 11 11 9</td>
+          <td>Expected:</td>
+          <td>5</td>
+          <td>45</td>
+          <td>9</td>
+          <td>9</td>
+          <td>7, 11</td>
+          <td>4</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>7 7 11 11 9</td>
+          <td>Actual:</td>
+          <td>5</td>
+          <td>45</td>
+          <td>9</td>
+          <td>9</td>
+          <td>7, 11</td>
+          <td>4</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <!-- Test Data 3 -->
+          <td>7 7 7 7 7</td>
+          <td>Expected:</td>
+          <td>5</td>
+          <td>35</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>7 7 7 7 7</td>
+          <td>Actual:</td>
+          <td>5</td>
+          <td>35</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>
 
