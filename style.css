@@ -40,7 +40,7 @@
 }
 
 .hidden {
-  display: none; 
+  display: none;
 }
 /* --------- Fancy title font ----------- */
 
@@ -241,7 +241,9 @@ form {
   font-size: 18px;
 }
 
-
+canvas {
+    /*border: 3px #d1d0d0 solid;*/
+}
 /* unvisited link */
 
 a:link {
