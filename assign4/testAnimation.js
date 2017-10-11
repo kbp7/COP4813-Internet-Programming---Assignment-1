@@ -21,10 +21,11 @@ $(document).ready(function() {
   var trackX;
   var trackY;
 
-  var requestAnimationFrame = window.requestAnimationFrame ||
-                            window.mozRequestAnimationFrame ||
-                            window.webkitRequestAnimationFrame ||
-                            window.msRequestAnimationFrame;
+  var cssSelector = anime({
+    targets: '#myCanvas',
+    translateY: -200,
+    scale: 1.2
+  });
 
   document.onmousemove = function(e) {
     cursorX = e.pageX;
@@ -36,8 +37,8 @@ $(document).ready(function() {
     head.beginPath();
     head.clearRect(0, 0, canvasWidth, canvasHeight);
     // color in the background
-    head.fillStyle = "#90fbcb";
-    head.fillRect(0, 0, canvasWidth, canvasHeight);
+    //head.fillStyle = "#90fbcb";
+    //head.fillRect(0, 0, canvasWidth, canvasHeight);
 
     // draw the circle
     head.beginPath();
@@ -117,7 +118,7 @@ $(document).ready(function() {
     nose.fill();
     nose.closePath();
 
-    requestAnimationFrame(drawCircle);
+    //requestAnimationFrame(drawCircle);
   }
   drawCircle();
 })

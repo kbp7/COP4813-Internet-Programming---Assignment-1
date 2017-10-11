@@ -29,6 +29,11 @@ $(document).ready(function() {
     hilt.lineTo(315,175);
     hilt.fill();
     hilt.closePath();
+    //draw highlight
+    highlight.beginPath();
+    highlight.fillStyle = "#f7f7f7";
+    highlight.fillRect(20, 135, 325, 5);
+    highlight.closePath();
     //draw dark
     hilt.beginPath();
     hilt.fillStyle = "#1e2126";
@@ -39,6 +44,13 @@ $(document).ready(function() {
     hilt.fillRect(230, 120, 40, 10);
     hilt.fillRect(145, 180, 40, 10);
     hilt.closePath();
+
+  }
+  var crystal = mainCanvas.getContext("2d");
+  var arrow = mainCanvas.getContext("2d");
+  var battery = mainCanvas.getContext("2d");
+
+  function drawDiagram() {
 
   }
   drawLightSaber();
