@@ -20,27 +20,28 @@ $(document).ready(function() {
     translateY: [200, 200],
     //scale: 1.2,
     easing: 'easeOutQuad',
-    //delay: 500
+    delay: 1000,
     autoplay: false
+
   });
   var animBeam = anime({
     targets: '#beamDiagram',
     opacity: [0, 0.75],
     //scale: 1.2,
     easing: 'easeOutQuad',
-    delay: 1500
+    delay: 2500
 
   });
   //tie this to a button later
   animDiagram.play();
-
+  //anime.speed = .70;
   function drawDiagram() {
 
     //draw beam
     innerBeam.beginPath();
     innerBeam.fillStyle = "#06adff";
     innerBeam.fillRect(385, 30, 395, 5);
-    innerBeam.fillRect(760, 0, 395, 65);
+    innerBeam.fillRect(760, 0, 1920, 65);
     innerBeam.moveTo(760, 0);
     innerBeam.lineTo(725, 33);
     innerBeam.lineTo(760, 66);

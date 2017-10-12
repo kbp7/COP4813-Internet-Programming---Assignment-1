@@ -187,6 +187,11 @@
   background: transparent;
 }
 
+.overflow {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: #ffffff;
   /* Old browsers */
