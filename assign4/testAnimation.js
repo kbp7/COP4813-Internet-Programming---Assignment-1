@@ -26,6 +26,7 @@ $(document).ready(function() {
     translateY: -200,
     scale: 1.2
   });
+  anime.speed = .75;
 
   document.onmousemove = function(e) {
     cursorX = e.pageX;

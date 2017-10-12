@@ -1,14 +1,25 @@
 $(document).ready(function() {
   var mainCanvas = document.querySelector("#myCanvas");
+  var beamCanvas = document.querySelector("#beamCanvas");
 
   var hilt = mainCanvas.getContext("2d");
   var hiltDeco = mainCanvas.getContext("2d");
-  var beam = mainCanvas.getContext("2d");
-  var highlight = mainCanvas.getContext("2d");
+
+  var beam = beamCanvas.getContext("2d");
+  var highlight = beamCanvas.getContext("2d");
 
   var canvasWidth = mainCanvas.width;
   var canvasHeight = mainCanvas.height;
 
+  
+
+  var animBeam = anime({
+    targets: '#beamCanvas',
+    opacity: [0, 1],
+    //scale: 1.2,
+    easing: 'easeOutQuad',
+    //delay: 500
+  });
   function drawLightSaber() {
     //draw beam
     beam.beginPath();

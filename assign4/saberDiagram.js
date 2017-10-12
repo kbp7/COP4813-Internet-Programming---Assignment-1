@@ -13,6 +13,18 @@ $(document).ready(function() {
   var canvasHeight = diagramCanvas.height;
 
   var upsize = 100;
+  var animDiagram = anime({
+    targets: '#myDiagram',
+    translateX: [-1000, 0],
+    translateY: [200, 200],
+    //scale: 1.2,
+    easing: 'easeOutQuad',
+    //delay: 500
+    autoplay: false
+  });
+  //tie this to a button later
+  animDiagram.play();
+
   function drawDiagram() {
     /*
     //draw beam
@@ -77,7 +89,30 @@ $(document).ready(function() {
 
     //draw pointing lines
     infoLines.beginPath();
-    infoLines.strokeStyle = "#14151c";
+    infoLines.strokeStyle = "#001a34";
+    infoLines.lineWidth = 3;
+    //top lines
+    infoLines.moveTo(425, 145);
+    infoLines.lineTo(425, 100);
+    infoLines.lineTo(475, 50);
+    //bottom lines
+    infoLines.moveTo(100, 175);
+    infoLines.lineTo(100, 325);
+    infoLines.lineTo(150, 375);
+
+    infoLines.moveTo(300, 175);
+    infoLines.lineTo(300, 325);
+    infoLines.lineTo(350, 375);
+
+    infoLines.moveTo(425, 175);
+    infoLines.lineTo(425, 325);
+    infoLines.lineTo(475, 375);
+
+    infoLines.moveTo(630, 175);
+    infoLines.lineTo(630, 325);
+    infoLines.lineTo(680, 375);
+
+    infoLines.stroke();
     infoLines.closePath();
 
   }
