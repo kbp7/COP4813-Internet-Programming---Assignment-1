@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COP 4813: Internet Programming</title>
+  <link rel="stylesheet" href="../style.css"></link>
+  <!-- Include jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="lightsaber.js"></script>
+  <script src="saberDiagram.js"></script>
+  <script src="../anime.min.js"></script>
+</head>
+
+<body>
+  <div class="nav">
+    <ul>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
+      <li><a href="https://github.com/kbp7">Github</a></li>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
+    </ul>
+  </div>
+  <div class="container bodyContent">
+    <div class=bigBlock>
+      <h1 class="kumarOne">How Lightsabers Work</h1>
+    </div>
+    <div id="saber" style="position:relative" height=300 width=1500>
+      <canvas id="myCanvas" style="z-index: 2; position:absolute; left:0px; top:0px; "height=300 width=1500></canvas>
+      <canvas id="beamCanvas" style="z-index: 1; position:absolute; left:0px; top:0px; "height=300 width=1500></canvas>
+    </div>
+    <div id="diagram" style="font-family: Kumar One">
+      <canvas id="myDiagram" height="500" width=1755></canvas>
+      <canvas id="beamDiagram" style="z-index: 1; position:absolute; left:0px; top:950px;" height="500" width=1920></canvas>
+    </div>
+  </div>
+</body>
+
+</html>
