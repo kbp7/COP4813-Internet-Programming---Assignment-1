@@ -14,6 +14,35 @@ $(document).ready(function() {
   var canvasHeight = diagramCanvas.height;
 
   var upsize = 100;
+
+  var timeline = anime.timeline({
+    autoplay: false
+  });
+  timeline
+  .add({
+    targets: '#myDiagram',
+    translateX: [-1000, 0],
+    translateY: [200, 200],
+    //scale: 1.2,
+    easing: 'easeOutQuad',
+    //offset: 1000 // Starts at 1000ms of the timeline
+
+  })
+  .add({
+    targets: '#beamDiagram',
+    opacity: [0, 0.75],
+    //scale: 1.2,
+    easing: 'easeOutQuad',
+    offset: 1500 // Starts at 500ms of the timeline
+  });
+  window.onscroll = function(e) {
+    //Reveal animation
+    var scrollTop = $(window).scrollTop()
+    if(scrollTop >= 250) {
+      timeline.play();
+    }
+  }
+  /*
   var animDiagram = anime({
     targets: '#myDiagram',
     translateX: [-1000, 0],
@@ -35,6 +64,7 @@ $(document).ready(function() {
   //tie this to a button later
   animDiagram.play();
   //anime.speed = .70;
+  */
   function drawDiagram() {
 
     //draw beam

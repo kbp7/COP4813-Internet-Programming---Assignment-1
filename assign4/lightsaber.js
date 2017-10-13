@@ -8,11 +8,35 @@ $(document).ready(function() {
   var beam = beamCanvas.getContext("2d");
   var highlight = beamCanvas.getContext("2d");
 
+  var scrollIcon = beamCanvas.getContext("2d");
+
   var canvasWidth = mainCanvas.width;
   var canvasHeight = mainCanvas.height;
 
-  
-
+  var timeline = anime.timeline();
+  timeline
+  .add({
+    targets: '#myCanvas',
+    translateX: [-1000, 0],
+    //translateY: [200, 200],
+    //scale: 1.2,
+    easing: 'easeOutQuad',
+    //offset: 1000 // Starts at 1000ms of the timeline
+  })
+  .add({
+    targets: '#scrollIndicator',
+    opacity: [0, 1],
+    easing: 'easeOutQuad',
+    //offset: 1000 // Starts at 1000ms of the timeline
+  })
+  .add({
+    targets: '#beamCanvas',
+    opacity: [0, 1],
+    //scale: 1.2,
+    easing: 'easeOutQuad',
+    //offset: 2500 // Starts at 500ms of the timeline
+  });
+  /*
   var animBeam = anime({
     targets: '#beamCanvas',
     opacity: [0, 1],
@@ -20,14 +44,25 @@ $(document).ready(function() {
     easing: 'easeOutQuad',
     //delay: 500
   });
+  */
   function drawLightSaber() {
     //draw beam
     beam.beginPath();
     beam.fillStyle = "#06adff";
-    beam.fillRect(315, 125, 1000, 45);
+    beam.fillRect(315, 125, 1275, 45);
     highlight.fillStyle = "#e9faff";
-    beam.fillRect(315, 135, 1000, 25);
+    beam.fillRect(315, 135, 1275, 25);
     beam.closePath();
+    //draw scroll indicator
+    /*
+    scrollIcon.beginPath();
+    scrollIcon.strokeStyle = "#b8b8b8"
+    scrollIcon.lineWidth = 4;
+    scrollIcon.moveTo(435, 100);
+    scrollIcon.lineTo(485, 150);
+    scrollIcon.stroke();
+    scrollIcon.closePath();
+    */
     //draw the hilt
     hilt.beginPath();
     hilt.fillStyle = "#e0e0e0";

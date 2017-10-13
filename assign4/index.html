@@ -22,15 +22,19 @@
   </div>
   <div class="container bodyContent">
     <div class=bigBlock>
-      <h1 class="kumarOne">How Lightsabers Work</h1>
+      <h1 id="title" class="kumarOne" style="position:relative; z-index: 3">How Lightsabers Work</h1>
     </div>
-    <div id="saber" style="position:relative" height=300 width=1500>
+    <div id="saber" style="position:absolute; top:230px;" height=300 width=1500>
       <canvas id="myCanvas" style="z-index: 2; position:absolute; left:0px; top:0px; "height=300 width=1500></canvas>
       <canvas id="beamCanvas" style="z-index: 1; position:absolute; left:0px; top:0px; "height=300 width=1500></canvas>
     </div>
+    <div id="scrollIndicator" style="position:relative; text-align:center" height=200 width=200>
+      <h3>Scroll Down</h3>
+      <!--canvas id="scrollDown" height=200 width=200></canvas-->
+    </div>
     <div id="diagram" style="font-family: Kumar One">
       <canvas id="myDiagram" height="500" width=1755></canvas>
-      <canvas id="beamDiagram" style="z-index: 1; position:absolute; left:0px; top:950px;" height="500" width=1920></canvas>
+      <canvas id="beamDiagram" style="z-index: 1; position:absolute; left:0px; top:1140px;" height="500" width=1920></canvas>
     </div>
   </div>
 </body>
