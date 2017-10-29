@@ -47,7 +47,7 @@ session_start();
   flock($fp, LOCK_UN);
   fclose($fp);
 
-  //header("Location: admin.php");
+  header("Location: admin.php");
   ?>
 </body>
 </html>
