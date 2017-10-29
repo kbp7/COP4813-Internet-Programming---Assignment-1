@@ -7,7 +7,7 @@ session_start();
 <head></head>
 <body>
   <?php
-  $stock = $_POST['dCompany'];
+  $stock = strtoupper($_POST['dCompany']);
   $stock = str_replace("\n", "", $stock);
   //echo $stock;
 

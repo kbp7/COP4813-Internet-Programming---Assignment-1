@@ -17,14 +17,14 @@ session_start();
   <div class="nav">
     <ul>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
+      <li><a href="logout.php">Logout</a></li>
       <li style="float:right"><a href="###">
         <?php
-        /*
-          $fn = "info.dat";
-          $fp = fopen($fn, "r");
-          echo "Welcome, ";
-          echo fread($fp, filesize("info.dat"));
-          */
+          $currentUser = $_SESSION["currentUser"];
+          if($currentUser === "" || $currentUser === null) {
+            echo "ERROR";
+            header("Location: index.php");
+          }
           echo "Welcome, ";
           echo $_SESSION["currentUser"];
           //fclose($fp);
@@ -101,8 +101,9 @@ session_start();
               $checkBought = strtok("|");
               $mycsv = fopen("http://finance.yahoo.com/d/quotes.csv?s=$checkTick&f=sl1d1t1c1ohgv&e=.csv", "r");
               $col = fgetcsv($mycsv, 1000, ",");
-              $checkCost = $col[1];
+              $checkCost = number_format((float)$col[1], 2, '.', '');
               $totalVal = $checkCost * $checkBought;
+              $totalVal = number_format((float)$totalVal, 2, '.', '');
               echo "<tr>";
               echo '<th scope="row">';
               echo $checkTick;

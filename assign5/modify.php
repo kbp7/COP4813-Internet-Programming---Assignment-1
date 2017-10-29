@@ -7,7 +7,7 @@ session_start();
 <head></head>
 <body>
   <?php
-  $stock = $_POST['mCompany'];
+  $stock = strtoupper($_POST['mCompany']);
   $shares = $_POST['mDesiredShares'];
   $stock = str_replace("\n", "", $stock);
   $shares = str_replace("\n", "", $shares);

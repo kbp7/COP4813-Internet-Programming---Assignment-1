@@ -19,8 +19,8 @@ session_start();
       <div class="col-xs-6 col-xs-offset-3">
         <form method="post">
           <div class="form-group">
-            <label for="inputEmail">Email address</label>
-            <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Email">
+            <label for="inputEmail">Username/Email address</label>
+            <input type="email" class="form-control" name="email" id="inputEmail" placeholder="Not Case Sensitive">
           </div>
           <div class="form-group">
             <label for="inputPassword">Password</label>
@@ -32,7 +32,7 @@ session_start();
       <?php
         $myfile = fopen("login.txt", "r") or die("Unable to open file!");
 
-        $submittedEmail = $_POST['email'];
+        $submittedEmail = strtoupper($_POST['email']);
         $submittedPassword = $_POST['pass'];
         $userLogin = $submittedEmail . " " . $submittedPassword;
         //echo $userLogin;
@@ -41,6 +41,7 @@ session_start();
         $myLogin = str_replace("\n", "", $myLogin);
         //echo $myLogin;
         $userLogin = str_replace("\n", "", $userLogin);
+
         if($userLogin === $myLogin) {
           //echo "Login successful.";
           $userName = substr($submittedEmail, 0, strpos($submittedEmail, '@'));
@@ -54,7 +55,7 @@ session_start();
           header("Location: admin.php");
         }
         else {
-          echo "Invalid credentials";
+          trigger_error("Invalid Credentials");
         }
         fclose($myfile);
         fclose($fp);
