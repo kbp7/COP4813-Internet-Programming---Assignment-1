@@ -36,14 +36,14 @@ session_start();
   <div class="container">
     <div class="row">
       <div class="col-xs-12" align="center">
-        <h1>Stock Manager</h1>
+        <h1>Stock Portfolio</h1>
       </div>
     </div>
-    <div class="row" style="margin-top: 100px;">
+    <div class="row">
       <div class="col-xs-12" align="center">
         <form action="add.php" class="form-inline" method="post">
           <div class="form-group">
-            <div class="input-group">
+            <div class="input-group" style="min-width: 500px">
               <div class="input-group-addon">Add: </div>
               <input type="text" class="form-control" name="company" placeholder="Stock">
               <input type="text" class="form-control" name="desiredShares" placeholder="Amount">
@@ -55,7 +55,7 @@ session_start();
       <div class="col-xs-12" align="center">
         <form action="modify.php" class="form-inline" method="post">
           <div class="form-group">
-            <div class="input-group">
+            <div class="input-group" style="min-width: 500px">
               <div class="input-group-addon">Modify: </div>
               <input type="text" class="form-control" name="mCompany" placeholder="Stock">
               <input type="text" class="form-control" name="mDesiredShares" placeholder="Amount">
@@ -67,7 +67,7 @@ session_start();
       <div class="col-xs-12" align="center">
         <form action="delete.php" class="form-inline" method="post">
           <div class="form-group">
-            <div class="input-group">
+            <div class="input-group" style="min-width: 500px">
               <div class="input-group-addon">Delete: </div>
               <input type="text" class="form-control" name="dCompany" placeholder="Stock">
             </div>
@@ -75,11 +75,11 @@ session_start();
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
-      <div class="col-xs-12">
+      <div class="col-xs-12" style="padding: 50px;">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Tick</th>
+              <th scope="col">Symbol</th>
               <th scope="col">Price</th>
               <th scope="col">Shares</th>
               <th scope="col">Total Value</th>

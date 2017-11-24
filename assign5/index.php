@@ -14,6 +14,14 @@ session_start();
 </head>
 
 <body>
+  <div class="nav">
+    <ul>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
+      <li><a href="https://github.com/kbp7">Github</a></li>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
+    </ul>
+  </div>
   <div class="container">
     <div class="row">
       <div class="col-xs-6 col-xs-offset-3">
@@ -28,6 +36,13 @@ session_start();
           </div>
           <button type="submit" class="btn btn-default" method="get">Submit</button>
         </form>
+      </div>
+      <div class="col-xs-12" align="center">
+        <p>
+          <?php
+            echo $_SESSION["error"];
+          ?>
+        </p>
       </div>
       <?php
         $myfile = fopen("login.txt", "r") or die("Unable to open file!");
@@ -52,10 +67,11 @@ session_start();
           */
           $_SESSION["currentUser"] = $userName;
           $_SESSION["userDataFile"] = $fn;
+          $_SESSION["error"] = "";
           header("Location: admin.php");
         }
-        else {
-          trigger_error("Invalid Credentials");
+        else if(strlen($userLogin) > 1) {
+          $_SESSION["error"] = "Invalid Credentials";
         }
         fclose($myfile);
         fclose($fp);
