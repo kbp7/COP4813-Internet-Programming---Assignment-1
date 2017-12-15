@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>COP 4813: Internet Programming</title>
+  <link rel="stylesheet" href="../style.css"></link>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+  <script src="statistics.js"></script>
+  <!--script>
+    var inputArray;
+    var number;
+    var sum;
+    var mean;
+    var median;
+    var mode;
+    var variance;
+    var stdDeviation;
+
+    $(document).ready(function() {
+      $("#submit").click(function() {
+        inputArray = ($("#input").val().split(" "));
+        calculateResults(inputArray);
+        $("#tests").removeClass("hidden");
+        //$("tests").removeClass("hidden");
+      });
+      $("#reset").on("click", function() {
+        clearResults();
+      });
+    });
+
+    function calculateResults(array) {
+      //alert(inputArray);
+      sum = findSum(array);
+      number = findN(array);
+      mean = findMean(array);
+      median = findMedian(array);
+      mode = findMode(array);
+      variance = findVariance(array);
+      stdDeviation = findStandardDeviation(array);
+
+      $("#results").html("Sorted Input: " + array + "<br>");
+      $("#results").append("N = " + number + "<br>");
+      $("#results").append("Sum = " + sum + "<br>");
+      $("#results").append("Mean = " + mean + "<br>");
+      $("#results").append("Median = " + median + "<br>");
+      $("#results").append("Mode = " + mode + "<br>");
+      $("#results").append("Variance = " + variance + "<br>");
+      $("#results").append("Standard Deviation = " + stdDeviation + "<br>");
+
+    }
+
+    function clearResults() {
+      number = 0;
+      sum = 0;
+      mode = 0;
+      //clear messages
+      $("#results").html("");
+      $("#tests").addClass("hidden");
+    }
+
+    function findN(array) {
+      number = array.length;
+      return parseInt(number);
+    }
+
+    function findMean(array) {
+      return sum / number;
+    }
+
+    function findSum(array) {
+      sum = 0;
+      for (var i = 0; i < array.length; i++) {
+        sum += array[i] << 0;
+      }
+      return parseInt(sum);
+    }
+
+    function findMedian(array) {
+      array.sort(function(a, b) {
+        return a - b
+      });
+      //alert("sorted: " + array);
+      var half = Math.floor(number / 2);
+      if (number % 2) {
+        return array[half];
+      } else {
+        var mid1 = parseInt(array[half - 1]);
+        var mid2 = parseInt(array[half]);
+        return (mid1 + mid2) / 2.0;
+      }
+    }
+
+    function findMode(array) {
+      if (number == 0) {
+        return null;
+      }
+      var counts = {};
+      var theMode = "";
+      var most = 1;
+      for (var i = 0; i < number; i++) {
+        var num = array[i];
+        if (counts[num] == null) {
+          counts[num] = 1;
+        } else {
+          counts[num]++;
+        }
+        if (counts[num] > most) {
+          theMode = num;
+          most = counts[num];
+        } else if (counts[num] == most) {
+          theMode += ", " + num;
+        }
+      }
+      return theMode;
+    }
+
+    function findVariance(array) {
+      var sumSquareDifferences = 0;
+      for (var i = 0; i < number; i++) {
+        var difference = mean - array[i];
+        sumSquareDifferences += (difference * difference);
+      }
+      return sumSquareDifferences / (number - 1);
+    }
+
+    function findStandardDeviation(array) {
+      return Math.sqrt(variance);
+    }
+  </script-->
+</head>
+
+<body>
+  <!-- ///////////// Navbar ////////////// -->
+  <div class="nav">
+    <ul>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
+      <li><a href="https://github.com/kbp7">Github</a></li>
+      <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
+    </ul>
+  </div>
+  <!-- ///////////// end Navbar ////////////// -->
+  <div class="container bodyContent">
+    <h1 class="patuaOne">Assignment 3</h1>
+    <p>
+      Statistics Calculator
+    </p>
+    <hr>
+    <!-- forms -->
+    <form id="survey" onreset="clearResults()">
+      <!-- text field -->
+      Enter a series of numbers separated by spaces:<br><br>
+
+      <input type="text" id="input" name="name">
+      <div id="inputError">
+
+      </div><br>
+
+      <!-- submit/reset -->
+      <input id="submit" type="button" value="Submit">
+      <input id="reset" type="reset">
+    </form>
+
+    <h3>
+      Results:
+    </h3>
+    <p id="results"></p>
+    <div id="tests" class="hidden">
+      <h3>Tests:</h3>
+      <table>
+        <tr>
+          <th>
+            <font color="#fc813b">User Input</font>
+          </th>
+          <th>
+            <font color="#fc813b"></font>
+          </th>
+          <th>
+            <font color="#fc813b">N</font>
+          </th>
+          <th>
+            <font color="#fc813b">Sum</font>
+          </th>
+          <th>
+            <font color="#fc813b">Mean</font>
+          </th>
+          <th>
+            <font color="#fc813b">Median</font>
+          </th>
+          <th>
+            <font color="#fc813b">Mode</font>
+          </th>
+          <th>
+            <font color="#fc813b">Sample Variance</font>
+          </th>
+          <th>
+            <font color="#fc813b">Sample Standard Deviation</font>
+          </th>
+        </tr>
+        <tr>
+          <!-- Test Data 1 -->
+          <td>1 5 3 9</td>
+          <td>Expected:</td>
+          <td>4</td>
+          <td>18</td>
+          <td>4.5</td>
+          <td>4</td>
+          <td>1, 3, 5, 9</td>
+          <td>11.7</td>
+          <td>3.4</td>
+        </tr>
+        <tr>
+          <td>1 5 3 9</td>
+          <td>Actual:</td>
+          <td>4</td>
+          <td>18</td>
+          <td>4.5</td>
+          <td>4</td>
+          <td>1, 3, 5, 9</td>
+          <td>11.7</td>
+          <td>3.4</td>
+        </tr>
+        <tr>
+          <!-- Test Data 2 -->
+          <td>7 7 11 11 9</td>
+          <td>Expected:</td>
+          <td>5</td>
+          <td>45</td>
+          <td>9</td>
+          <td>9</td>
+          <td>7, 11</td>
+          <td>4</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>7 7 11 11 9</td>
+          <td>Actual:</td>
+          <td>5</td>
+          <td>45</td>
+          <td>9</td>
+          <td>9</td>
+          <td>7, 11</td>
+          <td>4</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <!-- Test Data 3 -->
+          <td>7 7 7 7 7</td>
+          <td>Expected:</td>
+          <td>5</td>
+          <td>35</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>7 7 7 7 7</td>
+          <td>Actual:</td>
+          <td>5</td>
+          <td>35</td>
+          <td>7</td>
+          <td>7</td>
+          <td>7</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

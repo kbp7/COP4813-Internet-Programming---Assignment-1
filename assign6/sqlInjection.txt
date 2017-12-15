@@ -1,0 +1,6 @@
+SQL Injection is an attack wherein a user submits data in a form in order to tamper with the SQL
+statements that are executed. By entering special characters such as ')' an attacker can trick
+server side scripts into executing the user's own scripts in the form of the data submitted.
+
+This can be prevented by filtering user input and disallowing certain characters or using
+parameterized queries, which prevent the structure of the query from ever changing.

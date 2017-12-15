@@ -1,9 +1,195 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>COP 4813: Internet Programming</title>
   <link rel="stylesheet" href="../style.css"></link>
+
+  <script>
+    var likesJim = false;
+    var likesPranks = false;
+    var definitelyNotDwight = false;
+
+    function checkName(points, firstName, lastName, fullName) {
+      fullName = firstName + " " + lastName;
+      if(fullName.toUpperCase() == "JIM HALPERT") {
+        document.getElementById("results").innerHTML = "IDENTITY THEFT ISN'T A JOKE JIM! MILLIONS OF PEOPLE SUFFER FROM IT EVERY YEAR."
+        definitelyNotDwight = true;
+        showFakeDwight();
+      }
+      else if(fullName.toUpperCase() != "DWIGHT SCHRUTE") {
+        document.getElementById("results").innerHTML = "Well, your name is " + fullName + ", so you obviously aren't Dwight Schrute."
+        definitelyNotDwight = true;
+      }
+      else {
+        points++;
+      }
+      return points;
+    }
+    function askDwight() {
+      var jim = "";
+      if (document.getElementById('bestBear').value.toUpperCase() != "BLACK BEAR") {
+        jim = "False. Black bear.";
+      } else {
+        jim = "Damn right.";
+      }
+      if (document.getElementById('bestBear').value == "") {
+        jim = "Answer me!"
+      }
+      document.getElementById("jimReply").innerHTML = jim;
+      document.getElementById("q1Error").innerHTML = ""
+    }
+
+    function checkLikes(points, myLikes, iOwn) {
+      if (!myLikes[0].checked) {
+        points++;
+      } else {
+        definitelyNotDwight = true;
+        likesJim = true;
+      }
+      if (!myLikes[1].checked) {
+        points++;
+      } else {
+        definitelyNotDwight = true;
+        likesPranks = true;
+      }
+      for (var i = 2; i < 5; i++) {
+        if (myLikes[i].checked) {
+          points++;
+        }
+      }
+      for (var i = 0; i < 4; i++) {
+        if (iOwn[i].checked) {
+          points++;
+        }
+      }
+      return points;
+    }
+
+    function checkAspirations(points, myAspiration) {
+      switch (myAspiration) {
+        case "manager":
+          points++;
+          break;
+        case "beet":
+          points++;
+          break;
+        default:
+          //do nothing
+      }
+      return points;
+    }
+
+    function checkEmergencyChoice(points, emergencyChoice) {
+      if (emergencyChoice[2].checked) {
+        points++;
+      }
+      return points;
+    }
+
+    function checkIfAnswered(emergencyChoice) {
+      for (var i = 0; i < 3; i++) {
+        if (emergencyChoice[i].checked) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function calculateResults() {
+      var pointsPossible = 13;
+      var points = 0;
+      var firstName = document.getElementById('firstName').value;
+      var lastName = document.getElementById('lastName').value;
+      var fullName = "";
+      var bestBear = document.getElementById('bestBear').value;
+      var myLikes = document.getElementsByName("likes");
+      var iOwn = document.getElementsByName("property");
+      var myAspiration = document.getElementById("dropDown").value;
+      var emergencyChoice = document.getElementsByName("option");
+      var score = 0;
+      //check Full Name
+      if(firstName == "") {
+        document.getElementById("nameError1").innerHTML = "Answer required."
+        return;
+      }
+      else if(lastName == "") {
+        document.getElementById("nameError2").innerHTML = "Answer required."
+        return;
+      }
+      else {
+        points = checkName(points, firstName, lastName, fullName);
+      }
+      //check question 1
+      if (bestBear == "") {
+        //alert("bear");
+        document.getElementById("q1Error").innerHTML = "Answer required."
+        return;
+      } else {
+        document.getElementById("q1Error").innerHTML = ""
+      }
+      if (document.getElementById("jimReply").innerHTML == "Damn right.") {
+        points++;
+      }
+      //check question 2 and 3
+      points = checkLikes(points, myLikes, iOwn);
+      //check question 4
+      points = checkAspirations(points, myAspiration);
+      //check question 5
+      if (checkIfAnswered(emergencyChoice)) {
+        points = checkEmergencyChoice(points, emergencyChoice);
+        document.getElementById("q5Error").innerHTML = ""
+      } else {
+        document.getElementById("q5Error").innerHTML = "Answer required. We're gonna lose him!"
+        return;
+      }
+      //calculate score
+      if (definitelyNotDwight) {
+        score = 0.0;
+        if (likesJim && likesPranks) {
+          document.getElementById("results").innerHTML = "You like Jim AND pranks??? You're definitely not Dwight!!!";
+          showFakeDwight();
+        } else if (likesJim) {
+          document.getElementById("results").innerHTML = "You like Jim? I'm pretty sure you are not Dwight.";
+          showFakeDwight();
+        } else if (likesPranks) {
+          document.getElementById("results").innerHTML = "You like pranks? I'm pretty sure you are not Dwight.";
+          showFakeDwight();
+        }
+      } else {
+        score = (points / pointsPossible) * 100;
+        //alert(score);
+        if (score == 100) {
+          document.getElementById("results").innerHTML = "Score: " + score + "%! You are definitely Dwight Schrute!";
+          showRealDwight();
+        } else {
+          document.getElementById("results").innerHTML = "I'm " + score.toFixed(2) + "% sure that you are Dwight Schrute.";
+        }
+      }
+    }
+
+    function clearResults() {
+      document.getElementById("results").innerHTML = "";
+      document.getElementById("q1Error").innerHTML = "";
+      document.getElementById("q5Error").innerHTML = "";
+      document.getElementById("jimReply").innerHTML = "";
+      document.getElementById("image").src = '';
+      likesJim = false;
+      likesPranks = false;
+      definitelyNotDwight = false;
+    }
+
+    function showFakeDwight() {
+      document.getElementById('image').src = '../images/fakeDwight.jpg';
+    }
+
+    function showRealDwight() {
+      document.getElementById('image').src = '../images/realDwight.jpeg';
+      document.getElementById('image').width = 600;
+    }
+  </script>
 </head>
+
 <body>
   <!-- ///////////// Navbar ////////////// -->
   <div class="nav">
@@ -11,15 +197,94 @@
       <li><a href="http://139.62.210.151/~n00900355/cop4813/index.html">Home</a></li>
       <li><a href="https://github.com/kbp7">Github</a></li>
       <li><a href="http://139.62.210.151/~n00900355/cop4813/test.html">Testing Grounds</a></li>
-      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/about.html">About</a></li>
+      <li style="float:right"><a href="http://139.62.210.151/~n00900355/cop4813/assign1/index.html">About</a></li>
     </ul>
   </div>
   <!-- ///////////// end Navbar ////////////// -->
   <div class="container bodyContent">
-    <h1 class="patuaOne">Assignment 2 [WIP]</h1>
+    <h1 class="patuaOne">Assignment 2</h1>
     <p>
-      Assignment 2 content goes here.
+      Are you Dwight Schrute? This quiz will find out!
     </p>
+    <hr>
+    <!-- forms -->
+    <form id="survey" onreset="clearResults()">
+      <!-- text field -->
+      What's your name?<br>
+      <div class="answers">
+        First Name:<br>
+        <input type="text" id="firstName" name="name"><div id="nameError1">
+
+        </div><br>
+        Last Name: <br>
+        <input type="text" id="lastName" name="name"><div id="nameError2">
+
+        </div><br>
+      </div>
+      1. What kind of bear is best?<br>
+      <div class="answers">
+        <input type="text" id="bestBear" name="bear">
+        <input type="button" value="Enter" onclick="askDwight()">
+        <div id="q1Error">
+        </div>
+        <div id="jimReply">
+        </div>
+      </div>
+      <!-- checkboxes -->
+      2. You like:<br>
+      <div class="answers">
+        <input type="checkbox" name="likes" value="jim">Jim Halpert<br>
+        <input type="checkbox" name="likes" value="pranks">Pranks<br>
+        <input type="checkbox" name="likes" value="bears">Bears<br>
+        <input type="checkbox" name="likes" value="beets">Beets<br>
+        <input type="checkbox" name="likes" value="battlestar">Battlestar Galactica<br><br>
+      </div>
+      3. You own:<br>
+      <div class="answers">
+        <input type="checkbox" name="property" value="bears">Prescription glasses<br>
+        <input type="checkbox" name="property" value="beets">Calculator watch<br>
+        <input type="checkbox" name="property" value="battlestar">A dozen short sleeve shirts in classic mustard yellow + brown tie combo<br>
+        <input type="checkbox" name="property" value="bears">A beet farm/Bed and Breakfast<br><br>
+      </div>
+      <!-- Drop down -->
+      4. What do you aspire to be in life?:<br>
+      <div class="answers">
+        <select name="aspiration" id="dropDown">
+        <option value="billionaire">A multi-billionaire CEO/Crime Fighter</option>
+        <option value="actor">A world renown actor and male model</option>
+        <option value="drifter">A homeless drifter on a soul-searching journey across the world</option>
+        <option value="beet">The world's greatest beet farmer and professional bear wrestler</option>
+        <option value="president">The President of the United States</option>
+        <option value="manager">A regional manager at a local paper company</option>
+      </select><br><br>
+      </div>
+      <!-- radio buttons -->
+      5. You happen across a man who does not appear to be breathing. What do you do?<br>
+      <div class="answers">
+        <input type="radio" id="option1" name="option" value="call911">Call 911<br>
+        <input type="radio" id="option2" name="option" value="bury">Bury him<br>
+        <input type="radio" id="option3" name="option" value="harvest">Check for an organ donor card. We only have minutes to harvest.<br>
+        <div id="q5Error">
+        </div>
+      </div>
+      <!-- submit/reset -->
+      <input type="button" value="Submit" onClick="calculateResults()">
+      <input type="reset">
+    </form>
+    <h3>
+      Results:
+    </h3>
+    <p id="results"></p>
+    <div>
+      <img id="image" src="" align="middle">
+    </div>
+  </div>
+  <div id="flowchart" align="middle">
+    <p>
+      Flowchart:
+    </p>
+    <embed src="assignment2.pdf" width=90% height="1000px"/>
   </div>
 </body>
+
 </html>
